@@ -12,13 +12,18 @@
 
 
 .taskText{
-    width: 60%;
-    
+    display: inline-block;
+
+    word-break: break-all;
 }
-.taskText p{
-    margin: auto 0.2rem;
+
+.taskButton{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .taskButton button{
+    
     border:1px solid rgba(117, 117, 117, 0) ;
     background: transparent;
     padding:0 0.6rem;
