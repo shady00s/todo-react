@@ -5,6 +5,7 @@ import React from 'react';
 import './task.css'
 
 
+
 export default class TaskBody extends React.Component {
 
     constructor(props) {
@@ -15,13 +16,14 @@ export default class TaskBody extends React.Component {
     }
 
     onclickevent() {
-        this.props.archivedTask()
+      this.props.archiveTask()
+      
         this.setState(clickEvent => ({
             clickedEvent: !clickEvent.clickedEvent
         }))
 
     }
-
+//
 
     render() {
 
@@ -29,13 +31,13 @@ export default class TaskBody extends React.Component {
             <div className="taskBody row" >
                 <div className="taskText col-lg-8 col-sm-12" onClick={this.onclickevent}>
 
-                    {this.state.clickedEvent === true && this.props.element.status ==="pending"? <p >{this.props.element.body}</p> : <p style={{ color: 'grey' }}> <s style={{ color: 'grey' }}>{this.props.element.body}</s> </p>}
+                    { this.props.element.status ==="pending" ? <p >{this.props.element.body}</p> : <p style={{ color: 'grey' }}> <s style={{ color: 'grey' }}>{this.props.element.body}</s> </p>}
 
                 </div>
                 {/* delete or edit button */}
                 <div className="taskButton col-lg-4 ">
-                    <button className='editBtn'><FontAwesomeIcon icon={faEdit}  /> Edit</button>
-                    <button onClick={this.props.deleteFunc } className='deletebtn'><FontAwesomeIcon icon={faTrashCan} /> Delete</button>
+                    <button onClick={this.props.editingTask} className='editBtn'><FontAwesomeIcon icon={faEdit}  /> Edit</button>
+                    <button onClick={this.props.deleteTask } className='deletebtn'><FontAwesomeIcon icon={faTrashCan} /> Delete</button>
                 </div>
             </div>
         </>
